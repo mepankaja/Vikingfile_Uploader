@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  vikingbot:
+    build: .
+    container_name: vikingfile-bot
+    restart: unless-stopped
+    user: "1000:1000"
+    network_mode: host
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ./temp:/app/temp
